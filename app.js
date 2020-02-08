@@ -2,10 +2,6 @@ const {render} = ReactDOM
 const {Component} = React
 
 
-
-
-    
-
 const Nav = ({companies, products}) => {
     const prodLink = React.createElement('a', {href:`#products`}, `Products(${products.length})`) 
     const compLink = React.createElement('a', {href:`#companies`}, `Companies(${companies.length})`)
@@ -27,7 +23,6 @@ const ProductList = ({products}) => {
     })
     return React.createElement('ul',null,productlis)
 }
-
 
 
 
@@ -75,10 +70,11 @@ class App extends Component{
         let chosenView;
         if(view === 'companies'){
             chosenView = React.createElement(CompanyList, {companies})
-        }
-        if(view === 'products'){
+        } else if(view === 'products'){
             chosenView = React.createElement(ProductList, {products})
-        }
+        } else
+            chosenView 
+
         return React.createElement('div',null,nav,chosenView)
 
 
